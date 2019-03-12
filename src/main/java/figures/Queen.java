@@ -1,10 +1,8 @@
 package figures;
 
-public class Queen {
+public class Queen extends Figure{
 
-    private FigureType queen;
-
-    public Queen() {
-        this.queen = FigureType.QUEEN;
+    public Queen(ColorType colorType) {
+        super(FigureType.QUEEN, colorType);
     }
 }
