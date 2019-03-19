@@ -1,16 +1,23 @@
 import figures.Figure;
+import figures.None;
 
 import java.util.*;
 
 public class BoardRow {
 
-    private int row;
+    //private int row;
     private List<Figure> figure;
 
-    public BoardRow(int row, List<Figure> figure) {
+    public BoardRow() {
+        figure = new ArrayList<>();
+        for(int i = 0; i < Board.getBoardSize(); i++) {
+            figure.add(new None());
+        }
+    }
+    /*public BoardRow(int row, List<Figure> figure) {
         this.row = row;
         this.figure = figure;
-    }
+    }*/
 
     public List<Figure> getFigure() {
         return figure;
