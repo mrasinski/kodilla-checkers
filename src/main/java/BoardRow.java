@@ -5,7 +5,6 @@ import java.util.*;
 
 public class BoardRow {
 
-    //private int row;
     private List<Figure> figure;
 
     public BoardRow() {
@@ -14,10 +13,6 @@ public class BoardRow {
             figure.add(new None());
         }
     }
-    /*public BoardRow(int row, List<Figure> figure) {
-        this.row = row;
-        this.figure = figure;
-    }*/
 
     public List<Figure> getFigure() {
         return figure;
