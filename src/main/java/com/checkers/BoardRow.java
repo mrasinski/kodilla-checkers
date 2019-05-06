@@ -1,5 +1,7 @@
-import figures.Figure;
-import figures.None;
+package com.checkers;
+
+import com.checkers.figures.Figure;
+import com.checkers.figures.None;
 
 import java.util.*;
 
