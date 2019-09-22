@@ -1,7 +1,5 @@
 package com.checkers;
 
-import com.checkers.figures.ColorType;
-import com.checkers.figures.Pawn;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
@@ -23,22 +21,19 @@ public class GUI {
         return SIZE_SQUARE;
     }
 
-    public static void refreshBoard(Board board) {
+    public static GridPane getGridPane() {
+        return gridPane;
+    }
+
+    public static void refreshBoard(Board board, int colEn, int rowEn) {
         gridPane.getChildren().clear();
         for(int col = 0; col < Board.getBoardSize(); col++) {
             for (int row = 0; row < Board.getBoardSize(); row++) {
-                ImageView imageView = board.getFigure(row, col).getImage();
+                boolean en = (col == colEn) && (row == rowEn);
+                ImageView imageView = board.getFigure(row, col).getImage(en);
                 gridPane.add(imageView, col, row);
                 gridPane.setHalignment(imageView, HPos.CENTER);
                 gridPane.setValignment(imageView, VPos.CENTER);
-                /*gridPane.add(redPawns[col].getFigure(), col % (Board.getBoardSize() / 2) * 2 + (2 * col / Board.getBoardSize()) % 2,
-                        Board.getBoardSize() - 1 - (col * 2) / Board.getBoardSize());
-
-                bluePawns[col] = new Pawn(ColorType.BLUE);
-                GridPane.setHalignment(bluePawns[col].getFigure(), HPos.CENTER);
-                GridPane.setValignment(bluePawns[col].getFigure(), VPos.CENTER);
-                gridPane.add(bluePawns[col].getFigure(), col % (Board.getBoardSize() / 2) * 2 + (1 + 2 * col / Board.getBoardSize()) % 2,
-                        (col * 2) / Board.getBoardSize());*/
             }
         }
     }

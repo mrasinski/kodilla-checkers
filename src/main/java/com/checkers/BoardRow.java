@@ -28,9 +28,8 @@ public class BoardRow {
     @Override
     public String toString() {
         String temp = "";
-        Iterator<Figure> iT = figure.iterator();
-        while(iT.hasNext()) {
-            temp += iT.next().toString() + "|";
+        for (Figure value : figure) {
+            temp += value.toString() + "|";
         }
         return "|" + temp + "\n";
     }
