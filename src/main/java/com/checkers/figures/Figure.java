@@ -28,15 +28,16 @@ public class Figure {
         return colorType;
     }
 
-    public boolean isMarked() {
+    boolean isMarked() {
         return marked;
     }
 
-    public void setMarked(boolean marked) {
+    private void setMarked(boolean marked) {
         this.marked = marked;
     }
 
     public ImageView getImage(boolean en) {
+        setMarked(en);
         return new ImageView();
     }
 

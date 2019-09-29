@@ -25,13 +25,10 @@ public class Queen extends Figure{
 
     @Override
     public ImageView getImage(boolean en) {
-        setMarked(en);
         if (isMarked()) {
-            figure = (getColorType() == RED) ?
-                new ImageView(redQueenClicked) : new ImageView(blueQueenClicked);
+            figure = (getColorType() == RED) ? new ImageView(redQueenClicked) : new ImageView(blueQueenClicked);
         } else {
-            figure = (getColorType() == RED) ?
-                new ImageView(redQueen) : new ImageView(blueQueen);
+            figure = (getColorType() == RED) ? new ImageView(redQueen) : new ImageView(blueQueen);
         }
         return figure;
     }

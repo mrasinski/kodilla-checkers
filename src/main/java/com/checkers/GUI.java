@@ -8,29 +8,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class GUI {
+class GUI {
     private static Image board = new Image("file/checkersBoardcienszalinia.png");
     private static final int SIZE_SQUARE = 64;
     private static GridPane gridPane;
 
-    public static Image getBoard() {
+    private static Image getBoard() {
         return board;
     }
 
-    public static int getSizeSquare() {
+    private static int getSizeSquare() {
         return SIZE_SQUARE;
     }
 
-    public static GridPane getGridPane() {
-        return gridPane;
-    }
-
-    public static void refreshBoard(Board board, int colEn, int rowEn) {
+    static void refreshBoard(Board board, int colEn, int rowEn) {
         gridPane.getChildren().clear();
         for(int col = 0; col < Board.getBoardSize(); col++) {
             for (int row = 0; row < Board.getBoardSize(); row++) {
                 boolean en = (col == colEn) && (row == rowEn);
-                ImageView imageView = board.getFigure(row, col).getImage(en);
+                ImageView imageView = board.getFigure(col, row).getImage(en);
                 gridPane.add(imageView, col, row);
                 gridPane.setHalignment(imageView, HPos.CENTER);
                 gridPane.setValignment(imageView, VPos.CENTER);
@@ -38,7 +34,7 @@ public class GUI {
         }
     }
 
-    public static Scene createScene() {
+    static Scene createScene() {
         BackgroundSize backgroundSize = new BackgroundSize(512, 512,
                 false, false, false, false);
         BackgroundImage backgroundImage = new BackgroundImage(getBoard(), BackgroundRepeat.NO_REPEAT,
@@ -62,10 +58,6 @@ public class GUI {
         gridPane1.setPrefSize(512, 512);
         gridPane1.setMinHeight(512);
         gridPane1.setMinWidth(512);
-
-        gridPane1.setOnMouseClicked(event -> {
-            System.out.println(event);
-        });
 
         gridPane = gridPane1;
         gridPane.setBackground(background);

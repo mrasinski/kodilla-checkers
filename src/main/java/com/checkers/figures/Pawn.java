@@ -25,13 +25,10 @@ public class Pawn extends Figure {
 
     @Override
     public ImageView getImage(boolean en) {
-        setMarked(en);
         if (isMarked()) {
-            figure = (getColorType() == RED) ?
-                    new ImageView(redPawnClicked) : new ImageView(bluePawnClicked);
+            figure = (getColorType() == RED) ? new ImageView(redPawnClicked) : new ImageView(bluePawnClicked);
         } else {
-            figure = (getColorType() == RED) ?
-                    new ImageView(redPawn) : new ImageView(bluePawn);
+            figure = (getColorType() == RED) ? new ImageView(redPawn) : new ImageView(bluePawn);
         }
         return figure;
     }
